@@ -7,7 +7,7 @@ Welcome to Retentioneering framework's documentation!
 =====================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    retentioneering.analysis
