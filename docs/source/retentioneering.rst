@@ -8,18 +8,7 @@ Subpackages
 
     retentioneering.analysis
     retentioneering.utils
-
-Submodules
-----------
-
-retentioneering.visualization module
-------------------------------------
-
-.. automodule:: retentioneering.visualization
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+    retentioneering.visualization
 
 Module contents
 ---------------

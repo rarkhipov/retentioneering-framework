@@ -1,7 +1,8 @@
-retentioneering-framework-priv-clone
-====================================
+rarkhipov-retentioneering-framework
+===================================
 
 .. toctree::
    :maxdepth: 4
 
    retentioneering
+   setup
