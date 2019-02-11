@@ -10,10 +10,9 @@ Welcome to Retentioneering framework's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   source/intro
-   source/retentioneering.analysis
-   source/retentioneering.utils
-   source/retentioneering.visualization
+   retentioneering.analysis
+   retentioneering.utils
+   retentioneering.visualization
 
 
 Indices and tables

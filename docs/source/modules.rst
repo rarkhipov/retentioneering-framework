@@ -5,4 +5,3 @@ rarkhipov-retentioneering-framework
    :maxdepth: 4
 
    retentioneering
-   setup
