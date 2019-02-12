@@ -149,7 +149,7 @@ Let us aggregate our data over users transitions
     df_agg = analysis.get_all_agg(df, agg_list)
     df_agg.head()
 
-.. code:: none
+.. code-block:: none
 
                         event_name                      next_event  trans_count
     0  onboarding__chooseLoginType                            lost            1
