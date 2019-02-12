@@ -3,16 +3,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Retentioneering framework's documentation!
+.. title:: Retentioneering Framework
+
+---------------------------------------------------------------------
+
+.. include:: readme.rst
+   :start-after: inclusion-marker-do-not-remove
+
+Contents
 =====================================================
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
 
-   retentioneering.analysis
-   retentioneering.utils
-   retentioneering.visualization
+   Analysis <retentioneering.analysis>
+   Utils <retentioneering.utils>
+   Visualization <retentioneering.visualization>
 
 
 Indices and tables
