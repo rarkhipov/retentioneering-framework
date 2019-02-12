@@ -1,8 +1,3 @@
-.. Retentioneering framework documentation master file, created by
-   sphinx-quickstart on Mon Feb  4 14:24:36 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 .. title:: Retentioneering Framework
 
 ---------------------------------------------------------------------
@@ -15,9 +10,11 @@ Contents
 .. toctree::
    :maxdepth: 3
 
+   Preparing Data <retentioneering.preparing>
    Analysis <retentioneering.analysis>
-   Utils <retentioneering.utils>
    Visualization <retentioneering.visualization>
+   Utils <retentioneering.utils>
+
 
 
 Indices and tables
