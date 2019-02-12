@@ -7,7 +7,7 @@
 
 ---------------------------------------------------------------------
 
-.. include:: installation.md
+.. mdinclude:: installation.md
    :start-after: inclusion-marker-do-not-remove
 
 Contents
