@@ -2,10 +2,10 @@ Getting started
 ~~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
-    Installation <installation.rst>
+    Installation <getting_started/installation.rst>
 
-    Data preparation <data_preparation.rst>
+    Data preparation <getting_started/data_preparation.rst>
 
-    Analysis <analysis.rst>
+    Analysis <getting_started/analysis.rst>
