@@ -67,8 +67,9 @@ Events\` probability dynamics
                                    target_event_list=['lost',
                                                       'passed'])
 
-PASTE PICTURE HERE
-==================
+.. image:: <_static/desc_table_both.png>
+   :width: 1200
+   :alt: Probability dynamics
 
 In columns of the table there are serial numbers of the user's steps
 from the user path. In rows of the table there are events themselves.
@@ -108,8 +109,9 @@ Lost
                                         target_event_list=['lost',
                                                            'passed'])
 
-PASTE PICTURE HERE
-==================
+.. image:: <_static/desc_table_lost.png>
+   :width: 1200
+   :alt: Probability dynamics for lost users
 
 Passed
 
@@ -121,8 +123,9 @@ Passed
                                         target_event_list=['lost',
                                                            'passed'])
 
-PASTE PICTURE HERE
-==================
+.. image:: <_static/desc_table_passed.png>
+   :width: 1200
+   :alt: Probability dynamics for passed users
 
 .. code:: python
 
@@ -130,6 +133,10 @@ PASTE PICTURE HERE
                                 desc_passed,
                                 settings=settings,
                                 precalc=True)
+
+.. image:: <_static/desc_table_diff.png>
+   :width: 1200
+   :alt: Difference of probability dynamics over lost and passed users
 
 Agregates over user transitions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,6 +149,15 @@ Let us aggregate our data over users transitions
     df_agg = analysis.get_all_agg(df, agg_list)
     df_agg.head()
 
+.. code:: none
+
+                        event_name                      next_event  trans_count
+    0  onboarding__chooseLoginType                            lost            1
+    1  onboarding__chooseLoginType          onboarding_login_Type1          414
+    2  onboarding__chooseLoginType          onboarding_login_Type2          159
+    3  onboarding__chooseLoginType  onboarding_privacy_policyShown         2133
+    4     onboarding__loginFailure                            lost            1
+
 We can see which transitions take the most time and how often people
 have use different transitions.
 
@@ -150,6 +166,20 @@ We can choose the longest 10 user's path.
 .. code:: python
 
     df_agg.sort_values('trans_count', ascending=False).head(10)
+
+.. code:: none
+
+                               event_name                         next_event  trans_count
+    84          onboarding_welcome_screen          onboarding_welcome_screen         5021
+    85          onboarding_welcome_screen                             passed         2330
+    3         onboarding__chooseLoginType     onboarding_privacy_policyShown         2133
+    79          onboarding_welcome_screen        onboarding__chooseLoginType         1938
+    67     onboarding_privacy_policyShown             onboarding_login_Type1         1675
+    11             onboarding_login_Type1  onboarding_privacy_policyAccepted         1666
+    82          onboarding_welcome_screen        onboarding_otherLogin__show         1601
+    62  onboarding_privacy_policyAccepted          onboarding_welcome_screen         1189
+    78          onboarding_welcome_screen                               lost         1043
+    47        onboarding_otherLogin__show          onboarding_welcome_screen          876
 
 You can see events in which users spend most of the time. It seems
 reasonable to analyze only popular events to get stable results.
@@ -165,6 +195,14 @@ it on the `wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
     adj_count = analysis.get_adjacency(df_agg, 'trans_count')
     adj_count
 
+.. code:: none
+
+                                          onboarding_login_Type1   onboarding_privacy_policyShown
+    onboarding_login_Type1                                   0.0                              0.0
+    onboarding_privacy_policyShown                        1675.0                              0.0
+    onboarding__loginFailure                                 0.0                              0.0
+    onboarding_privacy_policyTapToPolicy                     0.0                              0.0
+    onboarding_welcome_screen                                0.0                              0.0
 Users clustering
 ~~~~~~~~~~~~~~~~
 
@@ -174,6 +212,14 @@ Also one can clusterize users by events' frequency choice
 
     countmap = analysis.utils.plot_frequency_map(df, settings, )
 
+.. image:: <_static/bar.png>
+   :width: 1200
+   :alt: Hist of frequencies
+
+.. image:: <_static/countmap.png>
+   :width: 1200
+   :alt: Heatmap of user trajectories
+
 One that plot one can see that some of users have pretty close
 frequencies of different functions usage.
 
@@ -182,7 +228,11 @@ conversion rates.
 
 .. code:: python
 
-    analysis.utils.plot_clusters(df, countmap, n_clusters=5, plot_cnt=5)
+    analysis.utils.plot_clusters(df, countmap, n_clusters=5, plot_cnt=2)
+
+.. image:: <_static/pie_cluster.png>
+   :width: 1200
+   :alt: Distribution of target class in founded clusters
 
 Graph visualization
 ~~~~~~~~~~~~~~~~~~~
@@ -196,6 +246,10 @@ Second option plots much better and obvious graphs.
 .. code:: python
 
     analysis.utils.plot_graph_python(df_agg, 'trans_count', settings)
+
+.. image:: <_static/graph_1.png>
+   :width: 1200
+   :alt: Python graph visualization
 
 .. code:: python
 
@@ -212,6 +266,10 @@ Model fitting
 
     clf = analysis.Model(df, target_event='lost', settings=settings)
     clf.fit_model()
+
+.. image:: <_static/scores.png>
+   :width: 1200
+   :alt: Model metrics
 
 It returns metrics of quality of model.
 
