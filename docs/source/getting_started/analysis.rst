@@ -149,6 +149,7 @@ Let us aggregate our data over users transitions
     df_agg = analysis.get_all_agg(df, agg_list)
     df_agg.head()
 
+Out:
 .. code-block:: none
 
                         event_name                      next_event  trans_count
@@ -167,7 +168,8 @@ We can choose the longest 10 user's path.
 
     df_agg.sort_values('trans_count', ascending=False).head(10)
 
-.. code:: none
+Out:
+.. code-block:: none
 
                                event_name                         next_event  trans_count
     84          onboarding_welcome_screen          onboarding_welcome_screen         5021
@@ -195,7 +197,8 @@ it on the `wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
     adj_count = analysis.get_adjacency(df_agg, 'trans_count')
     adj_count
 
-.. code:: none
+Out:
+.. code-block:: none
 
                                           onboarding_login_Type1   onboarding_privacy_policyShown
     onboarding_login_Type1                                   0.0                              0.0
