@@ -7,7 +7,7 @@
 
 ---------------------------------------------------------------------
 
-.. include:: installation.rst
+.. include:: installation.md
    :start-after: inclusion-marker-do-not-remove
 
 Contents
