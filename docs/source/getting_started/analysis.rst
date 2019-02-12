@@ -67,7 +67,7 @@ Events\` probability dynamics
                                    target_event_list=['lost',
                                                       'passed'])
 
-.. image:: ../_static/desc_table_both.png
+.. image:: ../_static/plots/desc_table_both.png
    :width: 1200
    :alt: Probability dynamics
 
@@ -109,7 +109,7 @@ Lost
                                         target_event_list=['lost',
                                                            'passed'])
 
-.. image:: <../_static/desc_table_lost.png>
+.. image:: <../_static/plots/desc_table_lost.png>
    :width: 1200
    :alt: Probability dynamics for lost users
 
@@ -123,7 +123,7 @@ Passed
                                         target_event_list=['lost',
                                                            'passed'])
 
-.. image:: _static/desc_table_passed.png
+.. image:: _static/plots/desc_table_passed.png
    :width: 1200
    :alt: Probability dynamics for passed users
 
@@ -134,7 +134,7 @@ Passed
                                 settings=settings,
                                 precalc=True)
 
-.. image:: <_static/desc_table_diff.png>
+.. image:: <_static/plots/desc_table_diff.png>
    :width: 1200
    :alt: Difference of probability dynamics over lost and passed users
 
@@ -212,11 +212,11 @@ Also one can clusterize users by events' frequency choice
 
     countmap = analysis.utils.plot_frequency_map(df, settings, )
 
-.. image:: <_static/bar.png>
+.. image:: <_static/plots/bar.png>
    :width: 1200
    :alt: Hist of frequencies
 
-.. image:: <_static/countmap.png>
+.. image:: <_static/plots/countmap.png>
    :width: 1200
    :alt: Heatmap of user trajectories
 
@@ -230,7 +230,7 @@ conversion rates.
 
     analysis.utils.plot_clusters(df, countmap, n_clusters=5, plot_cnt=2)
 
-.. image:: <_static/pie_cluster.png>
+.. image:: <_static/plots/pie_cluster.png>
    :width: 1200
    :alt: Distribution of target class in founded clusters
 
@@ -247,7 +247,7 @@ Second option plots much better and obvious graphs.
 
     analysis.utils.plot_graph_python(df_agg, 'trans_count', settings)
 
-.. image:: <_static/graph_1.png>
+.. image:: <_static/plots/graph_1.png>
    :width: 1200
    :alt: Python graph visualization
 
@@ -267,7 +267,7 @@ Model fitting
     clf = analysis.Model(df, target_event='lost', settings=settings)
     clf.fit_model()
 
-.. image:: <_static/scores.png>
+.. image:: <_static/plots/scores.png>
    :width: 1200
    :alt: Model metrics
 
