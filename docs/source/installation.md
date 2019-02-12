@@ -40,7 +40,7 @@ And git from [here](https://git-scm.com/downloads).
 
 ## Python package
 
-- To install Python package from github, you need to clone that repository.
+- To install Python package from github, you need to clone that repository
 ```bash
 git clone https://github.com/appintheair/aita-ml-retentioneering-python.git
 ```
