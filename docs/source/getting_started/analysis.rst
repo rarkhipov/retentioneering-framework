@@ -67,7 +67,7 @@ Events\` probability dynamics
                                    target_event_list=['lost',
                                                       'passed'])
 
-.. image:: <_static/desc_table_both.png>
+.. image:: ../_static/desc_table_both.png
    :width: 1200
    :alt: Probability dynamics
 
@@ -109,7 +109,7 @@ Lost
                                         target_event_list=['lost',
                                                            'passed'])
 
-.. image:: <_static/desc_table_lost.png>
+.. image:: <../_static/desc_table_lost.png>
    :width: 1200
    :alt: Probability dynamics for lost users
 
@@ -123,7 +123,7 @@ Passed
                                         target_event_list=['lost',
                                                            'passed'])
 
-.. image:: <_static/desc_table_passed.png>
+.. image:: _static/desc_table_passed.png
    :width: 1200
    :alt: Probability dynamics for passed users
 
