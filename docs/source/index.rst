@@ -7,7 +7,7 @@
 
 ---------------------------------------------------------------------
 
-.. include:: readme.rst
+.. include:: installation.rst
    :start-after: inclusion-marker-do-not-remove
 
 Contents
@@ -15,7 +15,6 @@ Contents
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
 
    Analysis <retentioneering.analysis>
    Utils <retentioneering.utils>
