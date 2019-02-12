@@ -1,13 +1,17 @@
+---------------------------------------------------------------------
+
+.. inclusion-marker-do-not-remove
+
 Installation
-============
+~~~~~~~~~~~~
 
 C++ compiler
-------------
+============
 
 Fistly you need to download c++ compiler
 
 Mac
-~~~
+---
 
 Install `homebrew <https://brew.sh/>`__
 
@@ -34,7 +38,7 @@ And git
     brew install git
 
 Windows
-~~~~~~~
+-------
 
 Install `Microsoft Visual Studio Build
 tools <https://visualstudio.microsoft.com/ru/downloads/>`__. You can
@@ -49,7 +53,7 @@ installer.
 And git from `here <https://git-scm.com/downloads>`__.
 
 Python package
---------------
+==============
 
 -  To install Python package from github, you need to clone that
    repository.
