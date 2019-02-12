@@ -7,8 +7,7 @@
 
 ---------------------------------------------------------------------
 
-.. mdinclude:: installation.md
-   :start-after: inclusion-marker-do-not-remove
+.. include:: getting_started/get_started.rst
 
 Contents
 =====================================================
