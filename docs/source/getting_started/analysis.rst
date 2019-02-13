@@ -2,7 +2,10 @@ Analysis
 ========
 
 Please, see the `data preparation tutorial <data_preparation.md>`__ for
-understand how to prepare data for this functions ## Load data
+understand how to prepare data for this functions
+
+Load data
+---------
 
 .. code:: python
 
@@ -12,12 +15,12 @@ understand how to prepare data for this functions ## Load data
 First steps
 -----------
 
-Let us describe onboarding lost-passed case.
+In this tutorial, we will describe the onboarding lost-passed case.
 
 **Goal**
 
-Our goal is to detect interface elements / screens of an app at which
-users' engagement drops significantly and induce them to leave the app
+Our goal is to detect interface elements/screens of an app at which
+users' engagement drops significantly and induces them to leave the app
 without account registration.
 
 **Tasks**
@@ -31,23 +34,21 @@ without account registration.
    3. Build the classifier
 
       1. Classifier helps you to pick out specific users paths
-      2. Classifier allows to estimate the probability of user's leaving
-         from the app based on his current path. One can use this
-         information to dynamically change the content of the app to
-         prevent from that.
+      2. Classifier allows estimating the probability of the user's
+      leaving from the app based on his current path. One can use this
+      information to dynamically change the content of the app to prevent that.
 
 **Expected results**
 
-1. One will identify the most "problematic" elements of an app
-2. One will get the classifier which will allow you to predict user's
-   leaving from the app based on current user's behaviour
+1. You will identify the most "problematic" elements of the app
+2. You will get the classifier which will allow you to predict the user's
+leaving from the app based on the current user's behavior
 
 Import retentioneering framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Firstly, we need to import data and set documents config with the export
-folder (you can leave it empty, then it will create folder with current
-timestamp).
+First of all, we need to import data and set documents config with the export folder
+(you can leave it empty and the script will create a folder with current timestamp).
 
 .. code:: python
 
@@ -71,14 +72,13 @@ Events\` probability dynamics
    :width: 1200
    :alt: Probability dynamics
 
-In columns of the table there are serial numbers of the user's steps
-from the user path. In rows of the table there are events themselves.
+Each column of the table corresponds to a sequence number
+   of the user's steps from the path and each row corresponds to event name.
 
-In cells you will see the probability of user's choice event at every
-step.
+Values of the table show the probability that the user choose the appropriate event at the appropriate step.
 
-It's difficult to make complicate analysis from that table so we should
-split our users to those who leave the app and those who passed on.
+It's difficult to make a complex analysis from that table so it is better
+   to split our users to those who leave the app and those who passed.
 
 Difference in passed and lost users behaviour
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,7 +141,7 @@ Passed
 Agregates over user transitions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let us aggregate our data over users transitions
+Lets aggregate our data over users transitions
 
 .. code:: python
 
@@ -150,6 +150,7 @@ Let us aggregate our data over users transitions
     df_agg.head()
 
 Out:
+
 .. code-block:: none
 
                         event_name                      next_event  trans_count
@@ -159,16 +160,17 @@ Out:
     3  onboarding__chooseLoginType  onboarding_privacy_policyShown         2133
     4     onboarding__loginFailure                            lost            1
 
-We can see which transitions take the most time and how often people
-have use different transitions.
 
-We can choose the longest 10 user's path.
+Now we can see which transitions take the most time and how often people have used different transitions.
+
+We could choose the 10 longest users' paths.
 
 .. code:: python
 
     df_agg.sort_values('trans_count', ascending=False).head(10)
 
 Out:
+
 .. code-block:: none
 
                                event_name                         next_event  trans_count
@@ -183,14 +185,15 @@ Out:
     78          onboarding_welcome_screen                               lost         1043
     47        onboarding_otherLogin__show          onboarding_welcome_screen          876
 
-You can see events in which users spend most of the time. It seems
+
+You can see the events where users spend most of their time. It seems
 reasonable to analyze only popular events to get stable results.
 
 Adjacency matrix
 ~~~~~~~~~~~~~~~~
 
-Ajecancy matrix is the representation of graph. You can read more about
-it on the `wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
+The adjacency matrix is the representation of the graph.
+You can read more about it on the`wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
 
 .. code:: python
 
@@ -198,6 +201,7 @@ it on the `wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
     adj_count
 
 Out:
+
 .. code-block:: none
 
                                           onboarding_login_Type1   onboarding_privacy_policyShown
@@ -206,10 +210,11 @@ Out:
     onboarding__loginFailure                                 0.0                              0.0
     onboarding_privacy_policyTapToPolicy                     0.0                              0.0
     onboarding_welcome_screen                                0.0                              0.0
+
 Users clustering
 ~~~~~~~~~~~~~~~~
 
-Also one can clusterize users by events' frequency choice
+Also, we could clusterize users by the frequency of events in their path.
 
 .. code:: python
 
@@ -223,11 +228,9 @@ Also one can clusterize users by events' frequency choice
    :width: 1200
    :alt: Heatmap of user trajectories
 
-One that plot one can see that some of users have pretty close
-frequencies of different functions usage.
+On that plot, we can see that some users have pretty close frequencies of different functions usage.
 
-And we can see that it is helpful to separate groups with different
-conversion rates.
+And we can see that it is useful to separate groups with different conversion rates.
 
 .. code:: python
 
@@ -240,11 +243,12 @@ conversion rates.
 Graph visualization
 ~~~~~~~~~~~~~~~~~~~
 
-We have to options for plotting graphs: 1. With python (this is local)
+We have two options to plot the graphs:
+1. With python (this is local)
 2. With our API
-(``you sends your data to our servers, we don't saving it, just visualize``)
+(``in that case, you'll send your data to our servers, but we don't save it and using only for visualization``)
 
-Second option plots much better and obvious graphs.
+In the second option, the plot looks much better and obvious.
 
 .. code:: python
 
@@ -274,7 +278,7 @@ Model fitting
    :width: 1200
    :alt: Model metrics
 
-It returns metrics of quality of model.
+It returns metrics of quality of the model.
 
 PUT HERE DESCRIPTION OF METRICS
 ===============================
@@ -282,9 +286,9 @@ PUT HERE DESCRIPTION OF METRICS
 Model inference
 ^^^^^^^^^^^^^^^
 
-We have data for new users, who is not passed or lost already.
+We have data for new users, who are not passed or lost already.
 
-Let us load it to pandas
+Lets load it into pandas DataFrame
 
 .. code:: python
 
@@ -300,8 +304,7 @@ Now we can predict probabilities for new users
 Understanding your data
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-You can plot projection of users trajectories to understand how your
-data look likes.
+You can plot projection of users trajectories to understand how your data looks likes.
 
 .. code:: python
 
@@ -310,8 +313,7 @@ data look likes.
 Understanding prediction of your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Also you can plot results of the model inference over that projections
-to understand cases where your model do bad
+Also, you can plot results of the model inference over that projections to understand the cases where your model fails
 
 .. code:: python
 
@@ -320,11 +322,9 @@ to understand cases where your model do bad
 Visualizing graph for area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From previous plot you can be interested what trajectories has high and
-conversion rates.
+From the previous plot, you can be interested in what trajectories has high conversion rates.
 
-You can select the area on that plot and visualize it as a trajectories
-graph.
+You can select the area on that plot and visualize it as a graph.
 
 .. code:: python
 
@@ -340,9 +340,8 @@ graph.
 The most important edges
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can found what was the most important edges and nodes in your model
-for debugging (e.g. it helps you to understand 'leaky' events) or to
-find problem transitions in your app.
+You could find what was the most important edges and nodes in your model for debugging
+(e.g. it helps you to understand 'leaky' events) or to find problem transitions in your app.
 
 Edges:
 
