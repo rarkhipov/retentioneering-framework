@@ -10,7 +10,7 @@ Data should have at least three columns: ``user_id``,
 Prepare data for analysis
 =========================
 
-First of all, load the data in python using pandas
+First of all, load the data in python using pandas:
 
 .. code:: python
 
@@ -33,7 +33,7 @@ Analysis submodule needs proper names of columns:
 3. Timestamp of event should be named as ``event_timestamp``. Also, it is needed
    to convert it to the integer type (seconds from ``1970-01-01``).
 
-Rename your columns with pandas.
+Rename your columns with pandas:
 
 .. code:: python
 
@@ -43,7 +43,7 @@ Rename your columns with pandas.
         'your_event_timestamp_name': 'event_timestamp'
     }, axis=1)
 
-Check the type of your timestamp column.
+Check the type of your timestamp column:
 
 .. code:: python
 
@@ -64,7 +64,7 @@ Out:
 
 We see that here column with the timestamp is a python object (string).
 
-You can use the following functions to convert it into seconds.
+You can use the following functions to convert it into seconds:
 
 .. code:: python
 
@@ -81,7 +81,7 @@ Most of our tools aim to estimate how different trajectories leads to
 different target events. So you should add such events as
 ``lost`` and ``passed``.
 
-For example, there is a list of events that correspond to the passed onboarding.
+For example, there is a list of events that correspond to the passed onboarding:
 
 .. code:: python
 
@@ -89,7 +89,7 @@ For example, there is a list of events that correspond to the passed onboarding.
     event_filter = ['newFlight', 'feed', 'tabbar', 'myFlights']
     data = preparing.add_passed_event(data, positive_event_name='passed', filter=event_filter)
 
-And all users who were not passed over some time have lost event.
+And all users who were not passed over some time have lost event:
 
 .. code:: python
 

@@ -2,7 +2,7 @@ Analysis
 ========
 
 Please, see the `data preparation tutorial <data_preparation.md>`__ for
-understand how to prepare data for this functions
+understand how to prepare data for this functions.
 
 Load data
 ---------
@@ -97,9 +97,9 @@ Difference in passed and lost users behaviour
     # filter data for passed users trajectories
     df_passed = df[~filt]
 
-Plot dynamics for different groups
+Plot dynamics for different groups.
 
-Lost
+Plot for group of users who have **lost** event:
 
 .. code:: python
 
@@ -113,7 +113,7 @@ Lost
    :width: 1200
    :alt: Probability dynamics for lost users
 
-Passed
+Plot for group of users who have **passed** event:
 
 .. code:: python
 
@@ -141,7 +141,7 @@ Passed
 Agregates over user transitions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lets aggregate our data over users transitions
+Lets aggregate our data over users transitions:
 
 .. code:: python
 
@@ -163,7 +163,7 @@ Out:
 
 Now we can see which transitions take the most time and how often people have used different transitions.
 
-We could choose the 10 longest users' paths.
+We could choose the 10 longest users' paths:
 
 .. code:: python
 
@@ -193,7 +193,7 @@ Adjacency matrix
 ~~~~~~~~~~~~~~~~
 
 The adjacency matrix is the representation of the graph.
-You can read more about it on the`wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__.
+You can read more about it on the`wiki <https://en.wikipedia.org/wiki/Adjacency_matrix>`__:
 
 .. code:: python
 
@@ -214,7 +214,7 @@ Out:
 Users clustering
 ~~~~~~~~~~~~~~~~
 
-Also, we could clusterize users by the frequency of events in their path.
+Also, we could clusterize users by the frequency of events in their path:
 
 .. code:: python
 
@@ -230,7 +230,7 @@ Also, we could clusterize users by the frequency of events in their path.
 
 On that plot, we can see that some users have pretty close frequencies of different functions usage.
 
-And we can see that it is useful to separate groups with different conversion rates.
+And we can see that it is useful to separate groups with different conversion rates:
 
 .. code:: python
 
@@ -288,13 +288,13 @@ Model inference
 
 We have data for new users, who are not passed or lost already.
 
-Lets load it into pandas DataFrame
+Lets load it into pandas DataFrame:
 
 .. code:: python
 
     test_data = pd.read_csv('example_datasets/test.cdv')
 
-Now we can predict probabilities for new users
+Now we can predict probabilities for new users:
 
 .. code:: python
 
@@ -304,7 +304,7 @@ Now we can predict probabilities for new users
 Understanding your data
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-You can plot projection of users trajectories to understand how your data looks likes.
+You can plot projection of users trajectories to understand how your data looks likes:
 
 .. code:: python
 
@@ -313,7 +313,7 @@ You can plot projection of users trajectories to understand how your data looks 
 Understanding prediction of your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Also, you can plot results of the model inference over that projections to understand the cases where your model fails
+Also, you can plot results of the model inference over that projections to understand the cases where your model fails:
 
 .. code:: python
 
@@ -324,7 +324,7 @@ Visualizing graph for area
 
 From the previous plot, you can be interested in what trajectories has high conversion rates.
 
-You can select the area on that plot and visualize it as a graph.
+You can select the area on that plot and visualize it as a graph:
 
 .. code:: python
 

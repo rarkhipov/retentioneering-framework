@@ -9,25 +9,25 @@ Firstly, you need to download c++ compiler.
 Mac
 ---
 
-Install `homebrew <https://brew.sh/>`__.
+Install `homebrew <https://brew.sh/>`__:
 
 .. code:: bash
 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-Next, install the gcc.
+Next, install the gcc:
 
 .. code:: bash
 
     brew install gcc
 
-You also need python if you haven't.
+You also need python if you haven't:
 
 .. code:: bash
 
     brew install python3
 
-Finally, install git.
+Finally, install git:
 
 .. code:: bash
 
@@ -50,13 +50,13 @@ Finally, install git from `here <https://git-scm.com/downloads>`__.
 Python package
 ==============
 
--  To install Python package from github, you need to clone our repository.
+-  To install Python package from github, you need to clone our repository:
 
    .. code:: bash
 
        git clone https://github.com/appintheair/aita-ml-retentioneering-python.git
 
--  Then, install dependencies from the requirements.txt file from that directory.
+-  Then, install dependencies from the requirements.txt file from that directory:
 
    .. code:: bash
 
@@ -68,7 +68,7 @@ Python package
 
        pip3 install -r requirements.txt --user
 
--  Then, just run the setup.py file from that directory
+-  Then, just run the setup.py file from that directory:
 
    .. code:: bash
 
