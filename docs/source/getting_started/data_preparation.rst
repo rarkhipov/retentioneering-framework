@@ -2,8 +2,7 @@ Download data
 =============
 
 Firstly, you should export your clickstream data as csv or other table
-format (also, you can download data directly from
-`BigQuery <bigquery.md>`__).
+format (or you can download data directly from `BigQuery <bigquery.md>`__).
 
 Data should have at least three columns: ``user_id``,
 ``event_timestamp`` and ``event_name``.
@@ -11,14 +10,14 @@ Data should have at least three columns: ``user_id``,
 Prepare data for analysis
 =========================
 
-Firstly, openning data in python is needed
+First of all, load the data in python using pandas
 
 .. code:: python
 
     import pandas as pd
     data = pd.read_csv('path_to_your_data.csv')
 
-You also can read data from other sources such as ``.xlsx``
+You also could read data from other sources such as ``.xlsx``
 (``pd.read_excel``), ``sql`` (``pd.read_sql``) and etc. Please, check
 the `pandas
 documentation <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html>`__
@@ -27,14 +26,14 @@ for other options
 Columns renaming and formatting
 -------------------------------
 
-Analysis submodule need proper names of columns:
+Analysis submodule needs proper names of columns:
 
-1. User id should be named as ``user_pseudo_id``
-2. Name of event should be ``event_name``
-3. Timestamp of event should be ``event_timestamp``. Also it is needed
-   to convert it to the integer (seconds from ``1970-01-01``).
+1. Column with user ID should be named as ``user_pseudo_id``
+2. Name of event should be named as ``event_name``
+3. Timestamp of event should be named as ``event_timestamp``. Also, it is needed
+   to convert it to the integer type (seconds from ``1970-01-01``).
 
-Rename your columns with pandas
+Rename your columns with pandas.
 
 .. code:: python
 
@@ -44,7 +43,7 @@ Rename your columns with pandas
         'your_event_timestamp_name': 'event_timestamp'
     }, axis=1)
 
-Check your timestamp type
+Check the type of your timestamp column.
 
 .. code:: python
 
@@ -63,9 +62,9 @@ Out:
     Event timestamp type: obj
     Event timestamp example: 2019-02-09 16:10:23
 
-The event timestamp here is python object (string).
+We see that here column with the timestamp is a python object (string).
 
-You can convert it to seconds with following code
+You can use the following functions to convert it into seconds.
 
 .. code:: python
 
@@ -78,12 +77,11 @@ You can convert it to seconds with following code
 Add target events
 -----------------
 
-Most of our tools aims to estimate how different trajectories leads to
-different target events. So it could be needed to add such events as
+Most of our tools aim to estimate how different trajectories leads to
+different target events. So you should add such events as
 ``lost`` and ``passed``.
 
-For example, there is a list of events that corresponds to passed
-onboarding.
+For example, there is a list of events that correspond to the passed onboarding.
 
 .. code:: python
 
@@ -91,7 +89,7 @@ onboarding.
     event_filter = ['newFlight', 'feed', 'tabbar', 'myFlights']
     data = preparing.add_passed_event(data, positive_event_name='passed', filter=event_filter)
 
-And all who was not passed over some time is lost
+And all users who were not passed over some time have lost event.
 
 .. code:: python
 
