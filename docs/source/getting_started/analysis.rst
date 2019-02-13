@@ -301,6 +301,17 @@ Now we can predict probabilities for new users:
     prediction = clf.infer(test_data)
     prediction.head()
 
+Out:
+
+.. code-block:: none
+
+                         user_pseudo_id  not_target    target
+    0  000bf8e1812a0335c7e65d52b3f6e816    0.976125  0.023875
+    1  00275391998b3f87d798f6e7a1ec5c15    0.757970  0.242030
+    2  004ecbe8a710f3c7b5b3cbc9bc0c74b2    0.727521  0.272479
+    3  00530441b09d5494b09e936a97d5cb99    0.988654  0.011346
+    4  005502038cec478faf343fe54310a848    0.592515  0.407485
+
 Understanding your data
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -310,6 +321,10 @@ You can plot projection of users trajectories to understand how your data looks 
 
     clf.plot_projections()
 
+.. image:: ../_static/plots/tsne_classes.png
+   :width: 1200
+   :alt: Model metrics
+
 Understanding prediction of your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -318,6 +333,10 @@ Also, you can plot results of the model inference over that projections to under
 .. code:: python
 
     clf.plot_projections(sample=data.event_name.values, ids=data.user_pseudo_id.values)
+
+.. image:: ../_static/plots/tsne_probs.png
+   :width: 1200
+   :alt: Model metrics
 
 Visualizing graph for area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,6 +356,10 @@ You can select the area on that plot and visualize it as a graph:
 
     clf.plot_cluster_track(bbox)
 
+.. image:: ../_static/plots/graph_2.png
+   :width: 1200
+   :alt: Python graph visualization
+
 The most important edges
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -350,9 +373,30 @@ Edges:
     imp_tracks = clf.build_important_track()
     imp_tracks[imp_tracks[1].notnull()]
 
+Out:
+
+.. code-block:: none
+
+                                 0                              1
+    0  onboarding__chooselogintype         onboarding_login_type1
+    1       onboarding_login_type1       onboarding__loginfailure
+    2  onboarding__chooselogintype         onboarding_login_type2
+    3       onboarding_login_type2    onboarding_otherlogin__show
+    5     onboarding__loginfailure  onboarding_login_type1_cancel
+
+
 Nodes:
 
 .. code:: python
 
     imp_tracks[imp_tracks[1].isnull()][0].values
 
+Out:
+
+.. code-block:: none
+
+    array(['onboarding__loginfailure', 'onboarding_login_type1',
+           'onboarding_login_type1_cancel', 'onboarding_login_type2',
+           'onboarding_otherlogin_privacy_policyshown',
+           'onboarding_privacy_policydecline', 'onboarding_welcome_screen'],
+          dtype=object)
